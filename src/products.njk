@@ -1,0 +1,54 @@
+---
+title: 商品目录
+description: 浏览萌宠之家精选的宠物食品、玩具、配件和健康用品。
+layout: layouts/layout.njk
+---
+<main class="py-12 px-4 max-w-7xl mx-auto">
+  <h1 class="font-heading text-3xl md:text-4xl font-bold text-text mb-8 text-center">商品目录</h1>
+  <p class="text-center text-text/70 mb-8">浏览我们精选的宠物用品</p>
+
+  <div id="category-filters" class="flex flex-wrap gap-3 mb-8 justify-center">
+    <button onclick="filterProducts('all')" class="px-5 py-2 rounded-full text-sm font-medium transition-colors bg-primary text-white">全部</button>
+    <button onclick="filterProducts('food')" class="px-5 py-2 rounded-full text-sm font-medium transition-colors bg-gray-200 text-text hover:bg-gray-300">食品</button>
+    <button onclick="filterProducts('toys')" class="px-5 py-2 rounded-full text-sm font-medium transition-colors bg-gray-200 text-text hover:bg-gray-300">玩具</button>
+    <button onclick="filterProducts('accessories')" class="px-5 py-2 rounded-full text-sm font-medium transition-colors bg-gray-200 text-text hover:bg-gray-300">配件</button>
+    <button onclick="filterProducts('health')" class="px-5 py-2 rounded-full text-sm font-medium transition-colors bg-gray-200 text-text hover:bg-gray-300">健康</button>
+  </div>
+
+  <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+  <div id="empty-state" class="text-center py-12 text-gray-500 hidden">暂无该分类下的商品</div>
+</main>
+
+<script>
+const pathPrefix = "{{ pathPrefix }}";
+const products = {{ products | dump | safe }};
+const categoryMap = { food: '食品', toys: '玩具', accessories: '配件', health: '健康' };
+
+function filterProducts(category) {
+  const filtered = category === 'all' ? products : products.filter(p => p.category === category);
+  document.getElementById('product-grid').innerHTML = filtered.map(p => `
+        <a href="${pathPrefix}/products/${p.id}" class="block group">
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow p-4 h-full flex flex-col">
+        <div class="bg-gray-200 aspect-square rounded-lg mb-4 w-full"></div>
+        <div class="flex flex-col flex-grow">
+          <h2 class="font-heading text-lg font-semibold text-text mb-2 line-clamp-2 group-hover:text-primary transition-colors">${p.name_zh}</h2>
+          <div class="mt-auto flex items-center justify-between pt-2">
+            <span class="text-accent font-bold text-xl">¥${p.price}</span>
+            <span class="text-xs px-2 py-1 bg-gray-100 text-text rounded">${categoryMap[p.category]}</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  `).join('');
+
+  document.getElementById('empty-state').classList.toggle('hidden', filtered.length > 0);
+  document.querySelectorAll('#category-filters button').forEach(btn => {
+    const isActive = btn.textContent === (category === 'all' ? '全部' : categoryMap[category]);
+    btn.classList.toggle('bg-primary', isActive);
+    btn.classList.toggle('text-white', isActive);
+    btn.classList.toggle('bg-gray-200', !isActive);
+    btn.classList.toggle('text-text', !isActive);
+  });
+}
+filterProducts('all');
+</script>

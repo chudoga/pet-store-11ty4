@@ -1,0 +1,23 @@
+---
+title: 关于我们
+description: 了解萌宠之家的故事、使命和店铺信息。
+layout: layouts/layout.njk
+---
+<section class="py-12 px-4">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 text-text">关于萌宠之家</h1>
+    <div class="bg-white rounded-xl shadow-md p-8 mb-8"><p class="text-lg leading-relaxed text-text/80 mb-4">萌宠之家成立于2020年，致力于为每一位宠物主人提供最优质的产品和服务。我们相信，每一只宠物都是家庭的重要成员，值得拥有最好的关怀。</p><p class="text-lg leading-relaxed text-text/80">从天然健康的宠物食品到舒适实用的配件用品，我们用心挑选每一件商品，让您的爱宠拥有幸福健康的生活。</p></div>
+    <div class="bg-white rounded-xl shadow-md p-8 mb-8"><h2 class="text-2xl font-bold mb-6 text-text">我们的使命</h2><ul class="space-y-3"><li class="flex items-start gap-3"><span class="text-accent text-xl">❤️</span><span class="text-text/80">用爱心照顾每一个小生命</span></li><li class="flex items-start gap-3"><span class="text-accent text-xl">⭐</span><span class="text-text/80">提供最优质的宠物用品</span></li><li class="flex items-start gap-3"><span class="text-accent text-xl">🏠</span><span class="text-text/80">让每个宠物家庭都幸福快乐</span></li></ul></div>
+    <div class="bg-white rounded-xl shadow-md p-8 mb-8"><h2 class="text-2xl font-bold mb-6 text-text">店铺信息</h2><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="flex items-center gap-3 p-3 bg-background rounded-lg"><span class="text-xl">📍</span><div><p class="font-semibold text-text">地址</p><p class="text-text/70">上海市浦东新区萌宠路123号</p></div></div><div class="flex items-center gap-3 p-3 bg-background rounded-lg"><span class="text-xl">📞</span><div><p class="font-semibold text-text">电话</p><p class="text-text/70">400-123-4567</p></div></div><div class="flex items-center gap-3 p-3 bg-background rounded-lg"><span class="text-xl">🕐</span><div><p class="font-semibold text-text">营业时间</p><p class="text-text/70">每天 9:00-21:00</p></div></div><div class="flex items-center gap-3 p-3 bg-background rounded-lg"><span class="text-xl">📧</span><div><p class="font-semibold text-text">邮箱</p><p class="text-text/70">info@mengchongzhijia.com</p></div></div></div></div>
+    <div id="contact" class="bg-white rounded-xl shadow-md p-8 mb-8"><h2 class="text-2xl font-bold mb-6 text-text">联系我们</h2><form id="contact-form" class="space-y-4"><div><label for="name" class="block text-sm font-medium text-text mb-1">姓名 <span class="text-accent">*</span></label><input type="text" id="name" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="请输入您的姓名"></div><div><label for="email" class="block text-sm font-medium text-text mb-1">邮箱 <span class="text-accent">*</span></label><input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="请输入您的邮箱"></div><div><label for="phone" class="block text-sm font-medium text-text mb-1">电话</label><input type="tel" id="phone" name="phone" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="请输入您的电话（选填）"></div><div><label for="message" class="block text-sm font-medium text-text mb-1">留言内容 <span class="text-accent">*</span></label><textarea id="message" name="message" required rows="4" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary focus:border-transparent outline-none resize-none" placeholder="请输入您的留言..."></textarea></div><button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-3 rounded-lg transition-colors">提交留言</button></form><div id="form-success" class="bg-green-100 text-green-800 p-4 rounded-lg text-center mt-4 hidden">感谢您的留言！我们会尽快回复您。</div></div>
+    <div class="bg-white rounded-xl shadow-md overflow-hidden"><div class="aspect-video bg-gray-300 flex items-center justify-center"><span class="text-gray-500 text-lg">地图加载区域</span></div></div>
+  </div>
+</section>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  this.style.display = 'none';
+  document.getElementById('form-success').classList.remove('hidden');
+  setTimeout(() => { this.reset(); this.style.display = 'block'; document.getElementById('form-success').classList.add('hidden'); }, 3000);
+});
+</script>

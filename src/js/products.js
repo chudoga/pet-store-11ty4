@@ -1,0 +1,15 @@
+const products = [
+  { id: 1, name_zh: "全价幼猫粮 - 2kg", category: "food", price: 128, description_zh: "专为幼猫设计的营养配方，富含DHA和优质蛋白质，助力健康成长。", featured: true },
+  { id: 2, name_zh: "无谷成犬粮 - 10kg", category: "food", price: 358, description_zh: "高肉含量，无谷低敏配方，适合各种体型的成年犬只。", featured: false },
+  { id: 3, name_zh: "深海鱼油冻干猫零食", category: "food", price: 45, description_zh: "采用深海鱼类，低温冷冻干燥技术，保留食材原味与营养。", featured: false },
+  { id: 4, name_zh: "羽毛互动逗猫棒", category: "toys", price: 15, description_zh: "天然羽毛，弹性十足，激发猫咪狩猎本能，增进人宠感情。", featured: false },
+  { id: 5, name_zh: "耐咬橡胶磨牙骨头", category: "toys", price: 28, description_zh: "环保橡胶材质，耐咬耐磨，帮助狗狗清洁牙垢，缓解焦虑。", featured: true },
+  { id: 6, name_zh: "智能自动激光逗猫器", category: "toys", price: 89, description_zh: "多种激光路径模式，自动定时开关，让猫咪在您忙碌时也能尽情玩耍。", featured: false },
+  { id: 7, name_zh: "英伦风真皮狗项圈", category: "accessories", price: 65, description_zh: "优质牛皮手工打造，时尚英伦风格，结实耐用且佩戴舒适。", featured: false },
+  { id: 8, name_zh: "四季通用可拆洗宠物窝", category: "accessories", price: 120, description_zh: "高回弹PP棉填充，透气面料，全拆洗设计，给宠物五星级的睡眠体验。", featured: true },
+  { id: 9, name_zh: "透明全景宠物背包", category: "accessories", price: 158, description_zh: "大视野透明面罩，多孔透气设计，让爱宠出门也能安全看世界。", featured: false },
+  { id: 10, name_zh: "宠物全能营养补充片", category: "health", price: 78, description_zh: "含多种维生素及矿物质，增强免疫力，改善毛发光泽。", featured: true },
+  { id: 11, name_zh: "温和配方宠物洗耳液", category: "health", price: 35, description_zh: "有效清洁耳道异味及耳垢，预防耳螨，温和不刺激。", featured: false },
+  { id: 12, name_zh: "体外驱虫滴剂 (猫犬通用)", category: "health", price: 95, description_zh: "快速杀灭跳蚤、蜱虫，药效持久，保护爱宠远离寄生虫困扰。", featured: false }
+];
+const categoryMap = { food: '食品', toys: '玩具', accessories: '配件', health: '健康' };

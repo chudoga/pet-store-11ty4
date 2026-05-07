@@ -1,0 +1,64 @@
+---
+title: 萌宠之家
+description: 萌宠之家提供各类优质宠物食品、玩具、配件，给您的爱宠最好的关怀。
+layout: layouts/layout.njk
+---
+<section class="bg-primary text-white py-20 px-4">
+  <div class="max-w-6xl mx-auto text-center">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">萌宠之家</h1>
+    <p class="text-xl md:text-2xl mb-8 text-white/90">给您的爱宠最好的关怀</p>
+    <a href="{{ '/products' | url }}" class="inline-block bg-secondary hover:bg-secondary/90 text-white font-semibold px-8 py-3 rounded-full text-lg transition-colors">浏览商品</a>
+  </div>
+</section>
+
+<section class="py-16 px-4 bg-background">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12 text-text">精选推荐</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for product in products %}
+        {% if product.featured %}
+        <a href="{{ pathPrefix }}/products/{{ product.id }}" class="group">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class="aspect-square bg-gray-200 flex items-center justify-center"><span class="text-gray-400 text-sm">商品图片</span></div>
+            <div class="p-4">
+              <h3 class="font-semibold text-lg mb-2 text-text group-hover:text-primary transition-colors">{{ product.name_zh }}</h3>
+              <p class="text-2xl font-bold text-accent">¥{{ product.price }}</p>
+            </div>
+          </div>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-4 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12 text-text">我们的服务</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center p-6 rounded-xl bg-background hover:shadow-lg transition-shadow"><div class="text-5xl mb-4">🍖</div><h3 class="text-xl font-bold mb-3 text-text">宠物食品</h3><p class="text-text/80 leading-relaxed">精选优质天然粮、冻干零食，满足爱宠每日营养需求。</p></div>
+      <div class="text-center p-6 rounded-xl bg-background hover:shadow-lg transition-shadow"><div class="text-5xl mb-4">🧸</div><h3 class="text-xl font-bold mb-3 text-text">宠物玩具</h3><p class="text-text/80 leading-relaxed">丰富多样的互动玩具，激发爱宠天性，增进感情。</p></div>
+      <div class="text-center p-6 rounded-xl bg-background hover:shadow-lg transition-shadow"><div class="text-5xl mb-4">🎀</div><h3 class="text-xl font-bold mb-3 text-text">宠物配件</h3><p class="text-text/80 leading-relaxed">时尚舒适的项圈、窝垫、背包，让爱宠生活更精彩。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-4 bg-background">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6 text-text">关于萌宠之家</h2>
+    <p class="text-lg leading-relaxed text-text/80 mb-8">萌宠之家成立于2020年，致力于为每一位宠物主人提供最优质的产品和服务。我们相信，每一只宠物都是家庭的重要成员，值得拥有最好的关怀。</p>
+    <a href="{{ '/about' | url }}" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold px-8 py-3 rounded-full text-lg transition-colors">了解更多</a>
+  </div>
+</section>
+
+<section class="py-16 px-4 bg-primary text-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-8">联系我们</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="bg-white/10 rounded-lg p-4"><p class="font-semibold mb-1">📞 电话</p><p>400-123-4567</p></div>
+      <div class="bg-white/10 rounded-lg p-4"><p class="font-semibold mb-1">📍 地址</p><p>上海市浦东新区萌宠路123号</p></div>
+      <div class="bg-white/10 rounded-lg p-4"><p class="font-semibold mb-1">🕐 营业时间</p><p>每天 9:00-21:00</p></div>
+    </div>
+    <a href="{{ '/about#contact' | url }}" class="inline-block bg-secondary hover:bg-secondary/90 text-white font-semibold px-8 py-3 rounded-full text-lg transition-colors">联系我们</a>
+  </div>
+</section>

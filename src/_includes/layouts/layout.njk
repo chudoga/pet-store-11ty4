@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} - 萌宠之家</title>
+  <meta name="description" content="{{ description }}">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3A6347',
+            secondary: '#D4A373',
+            accent: '#C44536',
+            background: '#FEFAE0',
+            text: '#283618',
+          },
+          fontFamily: {
+            heading: ['Fredoka', 'sans-serif'],
+            body: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Fredoka', sans-serif; }
+  </style>
+</head>
+<body class="bg-background text-text min-h-screen flex flex-col">
+  <nav class="bg-primary text-white shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="{{ '/' | url }}" class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-10 h-10">
+          <path d="M20 45 V85 C20 87.761 22.239 90 25 90 H75 C77.761 90 80 87.761 80 85 V45" fill="#D4A373"/>
+          <path d="M10 50 L50 15 L90 50" stroke="#3A6347" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <g fill="#C44536">
+            <path d="M50 75 C42 75 38 68 38 62 C38 55 44 52 50 52 C56 52 62 55 62 62 C62 68 58 75 50 75 Z"/>
+            <circle cx="35" cy="50" r="6"/>
+            <circle cx="43" cy="40" r="6"/>
+            <circle cx="57" cy="40" r="6"/>
+            <circle cx="65" cy="50" r="6"/>
+          </g>
+        </svg>
+        <span class="text-xl font-heading font-bold">萌宠之家</span>
+      </a>
+      <div class="flex gap-6 font-medium">
+        <a href="{{ '/products' | url }}" class="hover:text-secondary transition-colors">商品目录</a>
+        <a href="{{ '/about' | url }}" class="hover:text-secondary transition-colors">关于我们</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow">
+    {{ content | safe }}
+  </main>
+
+  <footer class="bg-text text-white py-8 px-4 mt-auto">
+    <div class="max-w-6xl mx-auto text-center">
+      <p>&copy; 2024 萌宠之家. 保留所有权利.</p>
+    </div>
+  </footer>
+  <script src="{{ '/js/products.js' | url }}"></script>
+</body>
+</html>
